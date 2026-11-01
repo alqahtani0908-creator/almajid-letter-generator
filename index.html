@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/stamp.png">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>مولّد خطابات الماجد</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: form column on the right, live A4 preview on the left, issued-letters register below. */
+:root{
+  --bg:#F5F0E7; --panel:#FFFFFF; --ink:#3A2422; --muted:#7D6862; --brand:#563230;
+  --gold:#A8843A; --line:#E4D9C7; --field:#FFFDF9; --btn:#563230; --btn-ink:#FFFFFF; --ok:#3C7A4E; --err:#A33B2E;
+  --f-ui:"Brando","Segoe UI",Tahoma,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1B1312; --panel:#251B19; --ink:#F2E9DF; --muted:#B9A79C; --brand:#E3CBA6;
+  --gold:#D4B873; --line:#3D2E2B; --field:#1F1715; --btn:#7A4642; --btn-ink:#FFFFFF; --ok:#7CC08F; --err:#E58B7E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1B1312; --panel:#251B19; --ink:#F2E9DF; --muted:#B9A79C; --brand:#E3CBA6;
+  --gold:#D4B873; --line:#3D2E2B; --field:#1F1715; --btn:#7A4642; --btn-ink:#FFFFFF; --ok:#7CC08F; --err:#E58B7E; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.7}
+.wrap{direction:rtl;max-width:1320px;margin:0 auto;padding-block:20px 48px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+h1{margin:0;font-size:24px;color:var(--brand);font-weight:700;text-wrap:balance}
+.sub{color:var(--muted);font-size:13px;margin:0}
+.chip{border:1px solid var(--gold);color:var(--brand);border-radius:999px;padding:4px 14px;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.chip span{color:var(--gold)}
+.app{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:920px){.app{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0}
+fieldset{border:0;margin:0 0 14px;padding:0;display:grid;gap:10px}
+legend{font-weight:700;color:var(--gold);font-size:14px;margin-bottom:6px;padding:0}
+label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:8px;padding:7px 10px;width:100%;box-sizing:border-box;direction:rtl}
+textarea{min-height:230px;resize:vertical;line-height:1.8}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+.hint{font-size:12px;color:var(--muted);margin:0}
+.actions{display:grid;gap:8px;margin-top:6px}
+button{font:inherit;font-weight:700;border-radius:9px;padding:10px 14px;cursor:pointer;border:1px solid var(--btn);background:var(--btn);color:var(--btn-ink)}
+button.ghost{background:transparent;color:var(--brand);border-color:var(--line)}
+button.small{padding:4px 10px;font-size:13px;font-weight:400}
+button:disabled{opacity:.55;cursor:default}
+.status{min-height:1.6em;font-size:13px;margin:4px 0 0}
+.status.ok{color:var(--ok)} .status.err{color:var(--err)}
+.preview{display:grid;gap:16px;justify-items:center;min-width:0}
+.preview canvas{width:100%;max-width:640px;height:auto;background:#fff;border-radius:4px;box-shadow:0 2px 14px rgba(60,30,25,.18)}
+.pvhead{width:100%;max-width:640px;display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+details{margin-top:6px;border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;color:var(--brand);font-weight:700;font-size:14px}
+.reg{margin-top:26px}
+.reg h2{font-size:18px;color:var(--brand);margin:0 0 10px}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{color:var(--gold);text-align:right;font-weight:700;border-bottom:2px solid var(--line);padding:8px}
+td{border-bottom:1px solid var(--line);padding:8px;vertical-align:top}
+td.num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--brand);white-space:nowrap}
+td.acts{white-space:nowrap;display:flex;gap:6px}
+.ghost-file{display:block;text-align:center;font-weight:700;color:var(--brand);border:1px solid var(--line);border-radius:9px;padding:10px 14px;cursor:pointer;font-size:15px}
+.ghost-file input{display:none}
+.empty{color:var(--muted);font-size:14px;padding:12px 0}
+</style>
+
+<div class="wrap">
+<header>
+  <div>
+    <h1>مولّد الخطابات</h1>
+    <p class="sub">مؤسسة أبناء علي بن عثمان الماجد الأهلية · الورق الرسمي وخط Brando</p>
+  </div>
+  <div class="chip" id="nextChip">الرقم التالي: <span id="nextNum">…</span></div>
+</header>
+
+<div class="app">
+<form class="panel" id="f" autocomplete="off">
+  <fieldset>
+    <legend>بيانات الخطاب</legend>
+    <div class="row2">
+      <label>التاريخ الميلادي<input type="date" id="gdate"></label>
+      <label>التاريخ الهجري<input id="hdate" placeholder="٠٩/٠٥/١٤٤٨هـ"></label>
+    </div>
+    <label>المرفقات (اتركه فارغاً إن لم توجد)<input id="attach" placeholder="مثال: ٢"></label>
+  </fieldset>
+  <fieldset>
+    <legend>المرسل إليه</legend>
+    <label>السطر الأول (الصفة أو الجهة)<input id="to1" placeholder="سعادة المدير التنفيذي لجمعية …"></label>
+    <label>السطر الثاني (الاسم)<input id="to2"></label>
+    <label>التحية<input id="greet"></label>
+  </fieldset>
+  <fieldset>
+    <legend>المحتوى</legend>
+    <label>الموضوع<input id="subject"></label>
+    <label>نص الخطاب<textarea id="body"></textarea></label>
+    <p class="hint">كل سطر فقرة مستقلة. ابدأ السطر بـ «- » ليظهر نقطةً ذهبية.</p>
+  </fieldset>
+  <fieldset>
+    <legend>الختام والتوقيع</legend>
+    <label>عبارة الختام<input id="closing"></label>
+    <label>التوقيع
+      <select id="sig">
+        <option value="gm">الصفة والاسم مع الختم</option>
+        <option value="name">الصفة والاسم بدون ختم</option>
+        <option value="stamp">الختم فقط</option>
+        <option value="none">بدون توقيع</option>
+      </select>
+    </label>
+    <div class="row2">
+      <label>الصفة<input id="sigTitle"></label>
+      <label>الاسم<input id="sigName"></label>
+    </div>
+  </fieldset>
+  <div class="actions">
+    <button type="button" id="issue">إصدار برقم جديد وتحميل PDF</button>
+    <button type="button" class="ghost" id="draft">تحميل مسودة بدون رقم</button>
+    <p class="status" id="status" role="status"></p>
+  </div>
+  <details>
+    <summary>إعدادات الترقيم</summary>
+    <fieldset style="margin-top:10px">
+      <div class="row2">
+        <label>بادئة الرقم (اختيارية)<input id="prefix" placeholder="مثال: م م"></label>
+        <label>يبدأ الترقيم هذا العام من<input id="startSeq" type="number" min="1" inputmode="numeric"></label>
+      </div>
+      <p class="hint">الترقيم تسلسلي لكل سنة هجرية بصيغة «التسلسل/السنة»، ويُحجز الرقم عند الإصدار فقط.</p>
+      <button type="button" class="ghost" id="saveSettings">حفظ الإعدادات</button>
+    </fieldset>
+    <fieldset id="backup" hidden style="margin-top:6px">
+      <p class="hint">السجل والترقيم محفوظان في هذا المتصفح فقط. صدّر نسخة احتياطية دورياً، واستوردها عند الانتقال إلى جهاز آخر.</p>
+      <div class="row2">
+        <button type="button" class="ghost" id="exportReg">تصدير السجل</button>
+        <label class="ghost-file">استيراد السجل<input type="file" id="importReg" accept=".json,application/json"></label>
+      </div>
+    </fieldset>
+  </details>
+</form>
+
+<section class="preview" aria-label="معاينة الخطاب">
+  <div class="pvhead"><span>معاينة مباشرة</span><span id="pageCount"></span></div>
+  <div id="pages" class="preview"></div>
+</section>
+</div>
+
+<section class="reg panel">
+  <h2>سجل الخطابات الصادرة</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>الرقم</th><th>التاريخ</th><th>الموضوع</th><th>المرسل إليه</th><th></th></tr></thead>
+      <tbody id="log"></tbody>
+    </table>
+  </div>
+  <p class="empty" id="logEmpty">يظهر هنا كل خطاب يصدر برقم، ويمكن إعادة تحميله أو استخدامه قالباً لخطاب جديد.</p>
+</section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const A_REG='fonts/Brando_Arabic_Regular.otf', A_BOLD='fonts/Brando_Arabic_Bold.otf', A_HEAD='img/letterhead.png', A_STAMP='img/stamp.png';
+(function(){
+'use strict';
+// ---------- constants (mm-based layout matching the official letters) ----------
+const MM = 300/25.4, PT_MM = 25.4/72, PT_PX = 300/72;
+const W = 2480, H = 3508, L = 20, R = 190, TOP = 39, LIMIT = 251, NAT = 1.49;
+const BROWN = '#563230', GOLD = '#CEB16B', GREY = '#8C7A74';
+const AR = /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/, LAT = /[A-Za-z]/;
+const D = '٠١٢٣٤٥٦٧٨٩';
+const toAr = s => String(s).replace(/[0-9]/g, c => D[+c]);
+const pad3 = n => String(n).padStart(3, '0');
+const pitch = (size, line) => NAT * line * size * PT_MM;
+const $ = id => document.getElementById(id);
+
+// ---------- assets ----------
+const head = new Image(); head.src = A_HEAD;
+const stamp = new Image(); stamp.src = A_STAMP;
+const fontsReady = Promise.all([
+  new FontFace('Brando', `url(${A_REG})`, {weight: '400'}).load(),
+  new FontFace('Brando', `url(${A_BOLD})`, {weight: '700'}).load()
+]).then(fs => fs.forEach(f => document.fonts.add(f)));
+const imgsReady = Promise.all([head, stamp].map(i => i.decode ? i.decode().catch(() => {}) : null));
+
+// ---------- dates ----------
+function hijriOf(g) { // foundation convention: Umm al-Qura of the previous day
+  const x = new Date(g.getTime() - 86400000);
+  const parts = new Intl.DateTimeFormat('en-u-ca-islamic-umalqura-nu-latn', {day: 'numeric', month: 'numeric', year: 'numeric'}).formatToParts(x);
+  const get = t => parseInt((parts.find(p => p.type === t) || {}).value, 10);
+  return {d: get('day'), m: get('month'), y: get('year')};
+}
+const two = n => String(n).padStart(2, '0');
+function parseG(v) { const [y, m, d] = (v || '').split('-').map(Number); return y ? new Date(y, m - 1, d, 12) : new Date(); }
+function hText(g) { const h = hijriOf(g); return toAr(`${two(h.d)}/${two(h.m)}/${h.y}`) + 'هـ'; }
+function gText(g) { return toAr(`${two(g.getDate())}/${two(g.getMonth() + 1)}/${g.getFullYear()}`) + 'م'; }
+function todayISO() { const t = new Date(); return `${t.getFullYear()}-${two(t.getMonth() + 1)}-${two(t.getDate())}`; }
+
+// ---------- text layout ----------
+let ctx0 = document.createElement('canvas').getContext('2d');
+const font = (size, bold) => `${bold ? 700 : 400} ${size * PT_PX}px Brando`;
+function measure(t, size, bold, ltr) { ctx0.font = font(size, bold); ctx0.direction = ltr ? 'ltr' : 'rtl'; return ctx0.measureText(t).width / MM; }
+function tokenize(runs, size) {
+  const out = [];
+  runs.forEach(r => {
+    (r.t || '').split(/\s+/).filter(Boolean).forEach(w => {
+      const ltr = LAT.test(w) && !AR.test(w);
+      const prev = out[out.length - 1];
+      if (prev && ltr && prev.ltr && prev.bold === !!r.bold && prev.color === r.color) prev.t += ' ' + w;
+      else out.push({t: w, bold: !!r.bold, color: r.color || BROWN, ltr});
+    });
+  });
+  out.forEach(k => k.w = measure(k.t, size, k.bold, k.ltr));
+  return out;
+}
+function wrap(toks, width, size) {
+  const sp = measure(' ', size, false), lines = [];
+  let cur = [], cw = 0;
+  toks.forEach(k => {
+    const add = cur.length ? sp + k.w : k.w;
+    if (cur.length && cw + add > width) { lines.push(cur); cur = [k]; cw = k.w; }
+    else { cur.push(k); cw += add; }
+  });
+  if (cur.length) lines.push(cur);
+  return lines;
+}
+
+// Build the block list of a letter; layout returns pages of draw ops.
+function blocksOf(lt) {
+  const B = [];
+  B.push({runs: [{t: 'بسم الله الرحمن الرحيم', bold: 1}], size: 13, align: 'center', after: 6});
+  if (lt.to1) B.push({runs: [{t: lt.to1, bold: 1}], size: 11.4, after: lt.to2 ? 1 : 4});
+  if (lt.to2) B.push({runs: [{t: lt.to2, bold: 1}], size: 11.8, after: 4});
+  if (lt.greet) B.push({runs: [{t: lt.greet, bold: 1}], size: 10.8, after: 3});
+  if (lt.subject) B.push({runs: [{t: 'الموضوع: ', bold: 1}, {t: lt.subject, bold: 1, color: GOLD}], size: 10.8, after: 6});
+  (lt.body || '').split('\n').map(s => s.trim()).filter(Boolean).forEach(p => {
+    const bullet = /^[-•–]\s*/.test(p);
+    B.push({runs: [{t: bullet ? p.replace(/^[-•–]\s*/, '') : p}], size: 10.5, align: 'justify', after: bullet ? 2 : 4, bullet});
+  });
+  if (lt.closing) B.push({runs: [{t: lt.closing, bold: 1}], size: 11, align: 'center', after: 4, keepSig: 1});
+  if (lt.sig && lt.sig !== 'none') B.push({sig: 1});
+  return B;
+}
+function topLines(lt) {
+  const t = [];
+  if (lt.num !== null) t.push('الرقم: ' + (lt.num || '—'));
+  t.push('التاريخ: ' + lt.hdate, 'الموافق: ' + lt.gdateText);
+  if (lt.attach) t.push('المرفقات: ' + lt.attach);
+  return t;
+}
+const SIG_H = 26;
+function layout(lt) {
+  const pages = [[]];
+  let pg = pages[0], y = TOP;
+  const dp = 6.5; // date block pitch
+  topLines(lt).forEach((s, i) => { pg.push({k: 'top', t: s, y: TOP + dp / 2 + i * dp}); });
+  y = TOP + dp * topLines(lt).length + 6 * PT_MM;
+  const newPage = () => { pg = []; pages.push(pg); pg.push({k: 'cont', t: lt.num ? 'تابع الخطاب رقم: ' + lt.num : 'تابع الخطاب', y: TOP + 3.2}); y = TOP + 9; };
+  const blocks = blocksOf(lt);
+  blocks.forEach((b, bi) => {
+    if (b.sig) {
+      if (y + SIG_H > LIMIT) newPage();
+      pg.push({k: 'sig', y: y + 1.5}); y += SIG_H; return;
+    }
+    const p = pitch(b.size, 1.4), right = b.bullet ? R - 5 : R, width = right - L;
+    const lines = wrap(tokenize(b.runs, b.size), width, b.size);
+    if (b.keepSig) { // closing line must stay with the signature
+      const need = p * lines.length + b.after * PT_MM + (blocks[bi + 1] && blocks[bi + 1].sig ? SIG_H : 0);
+      if (y + need > LIMIT) newPage();
+    }
+    lines.forEach((ln, i) => {
+      if (y + p > LIMIT) newPage();
+      pg.push({k: 'line', toks: ln, size: b.size, align: b.align || 'right', last: i === lines.length - 1, right, width, y: y + p / 2,
+               bullet: b.bullet && i === 0});
+      y += p;
+    });
+    y += b.after * PT_MM;
+  });
+  return pages;
+}
+
+// ---------- drawing ----------
+function drawText(ctx, t, xr, y, size, bold, color, ltr, align) {
+  ctx.font = font(size, bold); ctx.fillStyle = color; ctx.direction = ltr ? 'ltr' : 'rtl';
+  ctx.textAlign = align || 'right'; ctx.textBaseline = 'middle';
+  ctx.fillText(t, xr * MM, y * MM);
+}
+function drawLine(ctx, op) {
+  const {toks, size, align, right, width, y} = op;
+  const sp = measure(' ', size, false);
+  const sum = toks.reduce((a, k) => a + k.w, 0);
+  if (align === 'justify' && !op.last && toks.length > 1) {
+    const gap = (width - sum) / (toks.length - 1);
+    let x = right;
+    toks.forEach(k => { drawText(ctx, k.t, x, y, size, k.bold, k.color, k.ltr); x -= k.w + gap; });
+  } else {
+    // group same-style neighbours so the browser handles bidi inside each segment
+    const segs = [];
+    toks.forEach(k => { const s = segs[segs.length - 1];
+      if (s && s.bold === k.bold && s.color === k.color) s.t += ' ' + k.t; else segs.push({t: k.t, bold: k.bold, color: k.color}); });
+    segs.forEach(s => s.w = measure(s.t, size, s.bold));
+    const total = segs.reduce((a, s) => a + s.w, 0) + sp * (segs.length - 1);
+    let x = align === 'center' ? (L + R) / 2 + total / 2 : right;
+    segs.forEach(s => { drawText(ctx, s.t, x, y, size, s.bold, s.color, false); x -= s.w + sp; });
+  }
+  if (op.bullet) drawText(ctx, '•', R - 1, y, size + 2, true, GOLD, false);
+}
+function drawSig(ctx, lt, top) {
+  const sw = 37.5, sh = sw * (stamp.naturalHeight || 721) / (stamp.naturalWidth || 1610);
+  if (lt.sig === 'stamp') { ctx.drawImage(stamp, L * MM, (top + 4) * MM, sw * MM, sh * MM); return; }
+  const tw = Math.max(measure(lt.sigTitle || '', 11, true), measure(lt.sigName || '', 12.5, true));
+  const xr = Math.max(71, L + tw + 1);
+  if (lt.sigTitle) drawText(ctx, lt.sigTitle, xr, top + 3.8, 11, true, GOLD);
+  if (lt.sigName) drawText(ctx, lt.sigName, xr, top + 10.4, 12.5, true, BROWN);
+  if (lt.sig === 'gm') ctx.drawImage(stamp, (xr + 5) * MM, (top + 7) * MM, sw * MM, sh * MM);
+}
+function renderPages(lt, canvases) {
+  const pages = layout(lt);
+  return pages.map((ops, i) => {
+    const c = (canvases && canvases[i]) || document.createElement('canvas');
+    c.width = W; c.height = H;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, H);
+    ctx.drawImage(head, 0, 0, W, H);
+    ops.forEach(op => {
+      if (op.k === 'top') drawText(ctx, op.t, L, op.y, 10.5, true, BROWN, false, 'left');
+      else if (op.k === 'cont') drawText(ctx, op.t, L, op.y, 9.5, false, GREY, false, 'left');
+      else if (op.k === 'line') drawLine(ctx, op);
+      else if (op.k === 'sig') drawSig(ctx, lt, op.y);
+    });
+    return c;
+  });
+}
+
+// ---------- form state ----------
+const FIELDS = ['gdate', 'hdate', 'attach', 'to1', 'to2', 'greet', 'subject', 'body', 'closing', 'sig', 'sigTitle', 'sigName'];
+const EXAMPLE = {
+  to1: '', to2: 'سعادة الأستاذ / عبدالرحمن بن عبدالعزيز الشبيب — حفظه الله',
+  greet: 'السلام عليكم ورحمة الله وبركاته،، وبعد:',
+  subject: 'شكر وتقدير على دعم مشروع تعطير مساجد الرياض',
+  body: 'يطيب لمؤسسة أبناء علي بن عثمان الماجد الأهلية أن تتقدم إلى سعادتكم بخالص الشكر وعظيم الامتنان على دعمكم السخي ومشاركتكم الكريمة مع المؤسسة في مشروع تعطير (٥٠) خمسين مسجداً من مساجد مدينة الرياض.\nسائلين الله العلي القدير أن يجعل ما قدمتموه في موازين حسناتكم، وأن يبارك لكم في أهلكم ومالكم.',
+  closing: 'وتفضلوا بقبول وافر التحية والتقدير،،',
+  sig: 'gm', sigTitle: 'المدير العام', sigName: 'عبدالرحمن بن سليمان الجلنداني', attach: ''
+};
+let hManual = false;
+function readForm() { const o = {}; FIELDS.forEach(k => o[k] = $(k).value.trim()); o.body = $('body').value; return o; }
+function fillForm(o) { FIELDS.forEach(k => { if (o[k] !== undefined) $(k).value = o[k]; }); }
+function letterFrom(o, num) {
+  const g = parseG(o.gdate);
+  return Object.assign({}, o, {num, hdate: o.hdate || hText(g), gdateText: gText(g)});
+}
+function saveDraft() { try { localStorage.setItem('almajid-letter-draft', JSON.stringify(readForm())); } catch (e) {} }
+function loadDraft() { try { return JSON.parse(localStorage.getItem('almajid-letter-draft') || 'null'); } catch (e) { return null; } }
+
+// ---------- numbering state ----------
+let db = null, dl = null, letters = [], settings = {prefix: '', startSeq: 1};
+const curHY = () => hijriOf(parseG($('gdate').value)).y;
+function nextSeq(hy) {
+  let max = Math.max(0, (Number(settings.startSeq) || 1) - 1);
+  letters.forEach(l => { if (l.hy === hy && l.seq > max) max = l.seq; });
+  return max + 1;
+}
+const numText = (seq, hy) => (settings.prefix ? settings.prefix + ' ' : '') + toAr(`${pad3(seq)}/${hy}`);
+function refreshChip() { $('nextNum').textContent = db ? numText(nextSeq(curHY()), curHY()) : 'غير متاح هنا'; }
+
+// ---------- preview ----------
+let timer = null;
+function schedule() { clearTimeout(timer); timer = setTimeout(preview, 180); }
+function preview() {
+  const o = readForm();
+  const num = db ? numText(nextSeq(curHY()), curHY()) : '';
+  const holder = $('pages');
+  const old = Array.from(holder.querySelectorAll('canvas'));
+  const pages = renderPages(letterFrom(o, num), old);
+  pages.forEach((c, i) => { if (!old[i]) { c.setAttribute('aria-label', 'صفحة ' + (i + 1)); holder.appendChild(c); } });
+  old.slice(pages.length).forEach(c => c.remove());
+  $('pageCount').textContent = toAr(pages.length) + (pages.length === 1 ? ' صفحة' : ' صفحات');
+  saveDraft(); refreshChip();
+}
+
+// ---------- pdf + save ----------
+function setStatus(t, cls) { const s = $('status'); s.textContent = t; s.className = 'status ' + (cls || ''); }
+function pdfBlob(lt) {
+  const pages = renderPages(lt);
+  const pdf = new window.jspdf.jsPDF({unit: 'mm', format: 'a4', compress: true});
+  pages.forEach((c, i) => { if (i) pdf.addPage(); pdf.addImage(c, 'PNG', 0, 0, 210, 297, undefined, 'FAST'); });
+  pdf.setProperties({title: lt.subject || 'خطاب'});
+  return pdf.output('blob');
+}
+const safe = s => (s || '').replace(/[\\/:*?"<>|]/g, '-').slice(0, 90);
+async function offer(lt, name) {
+  if (!dl) { setStatus('التحميل غير متاح في هذا العرض. افتح الصفحة من Claude.', 'err'); return false; }
+  try { await dl.save({filename: name + '.pdf', data: pdfBlob(lt)}); return true; }
+  catch (e) { setStatus(e && e.code === 'declined' ? 'أُلغي التحميل.' : 'تعذّر التحميل، حاول مرة أخرى.', 'err'); return false; }
+}
+async function claim(hy, data) {
+  const tab = 'tab-' + Math.random().toString(36).slice(2);
+  for (let s = nextSeq(hy), tries = 0; tries < 25; s++, tries++) {
+    const ref = db.doc(`letters/${hy}-${s}`);
+    const a = await ref.acquire({holder: tab, ttlMs: 5000});
+    if (!a.acquired) continue;
+    const g = await ref.get();
+    if (g.exists && (g.data() || {}).seq) continue;
+    const number = numText(s, hy);
+    await ref.set(Object.assign({}, data, {seq: s, hy, number, issuedAt: new Date().toISOString()}));
+    return number;
+  }
+  throw new Error('no-slot');
+}
+async function issue() {
+  const o = readForm();
+  if (!o.subject && !o.body.trim()) { setStatus('اكتب الموضوع أو نص الخطاب أولاً.', 'err'); return; }
+  if (!db) { setStatus('الترقيم غير متاح في هذا العرض. استخدم «تحميل مسودة» أو افتح الصفحة من Claude.', 'err'); return; }
+  $('issue').disabled = true; setStatus('جارٍ حجز الرقم…');
+  try {
+    const hy = curHY();
+    const lt0 = letterFrom(o, '');
+    const number = await claim(hy, Object.assign({}, o, {hdate: lt0.hdate}));
+    setStatus('صدر الخطاب برقم ' + number + '، جارٍ تجهيز الملف…', 'ok');
+    const ok = await offer(letterFrom(o, number), `خطاب ${safe(number)} - ${safe(o.subject)}`);
+    if (ok) setStatus('صدر الخطاب برقم ' + number + ' وحُفظ في السجل.', 'ok');
+  } catch (e) {
+    setStatus(e && e.code === 'not_granted' || e && e.code === 'permission_denied' ? 'ليست لديك صلاحية إصدار أرقام في هذه الصفحة.' : 'تعذّر حجز رقم جديد، حاول مرة أخرى.', 'err');
+  } finally { $('issue').disabled = false; }
+}
+async function draftDl() {
+  const o = readForm(); setStatus('جارٍ تجهيز المسودة…');
+  const ok = await offer(letterFrom(o, null), 'مسودة - ' + safe(o.subject || 'خطاب'));
+  if (ok) setStatus('حُمّلت المسودة بدون رقم.', 'ok');
+}
+
+// ---------- register ----------
+function renderLog() {
+  const tb = $('log'); tb.textContent = '';
+  const rows = letters.slice().sort((a, b) => (b.issuedAt || '').localeCompare(a.issuedAt || ''));
+  $('logEmpty').hidden = rows.length > 0;
+  rows.forEach(l => {
+    const tr = document.createElement('tr');
+    const td = (t, cls) => { const d = document.createElement('td'); d.textContent = t || '—'; if (cls) d.className = cls; tr.appendChild(d); return d; };
+    td(l.number, 'num'); td(l.hdate); td(l.subject); td(l.to2 || l.to1);
+    const a = document.createElement('td'); a.className = 'acts';
+    const b1 = document.createElement('button'); b1.type = 'button'; b1.className = 'ghost small'; b1.textContent = 'تحميل';
+    b1.onclick = async () => { setStatus('جارٍ تجهيز الخطاب ' + l.number + '…');
+      if (await offer(Object.assign(letterFrom(l, l.number), {hdate: l.hdate || letterFrom(l, '').hdate}), `خطاب ${safe(l.number)} - ${safe(l.subject)}`)) setStatus('حُمّل الخطاب ' + l.number + '.', 'ok'); };
+    const b2 = document.createElement('button'); b2.type = 'button'; b2.className = 'ghost small'; b2.textContent = 'استخدامه قالباً';
+    b2.onclick = () => { fillForm(Object.assign({}, l, {gdate: todayISO(), hdate: ''})); hManual = false; syncH(); preview(); window.scrollTo({top: 0, behavior: 'smooth'}); setStatus('نُسخ محتوى الخطاب ' + l.number + ' إلى النموذج.', 'ok'); };
+    a.append(b1, b2); tr.appendChild(a); tb.appendChild(tr);
+  });
+}
+
+// ---------- wiring ----------
+function syncH() { if (!hManual) $('hdate').value = hText(parseG($('gdate').value)); }
+async function start() {
+  const d = loadDraft();
+  fillForm(Object.assign({}, EXAMPLE, d || {}));
+  $('gdate').value = todayISO(); hManual = false; syncH();
+  $('gdate').addEventListener('input', () => { hManual = false; syncH(); schedule(); });
+  $('hdate').addEventListener('input', () => { hManual = true; schedule(); });
+  FIELDS.forEach(k => { if (k !== 'gdate' && k !== 'hdate') $(k).addEventListener('input', schedule); });
+  $('issue').onclick = issue; $('draft').onclick = draftDl;
+  $('f').addEventListener('submit', e => e.preventDefault());
+  $('saveSettings').onclick = async () => {
+    if (!db) { setStatus('الإعدادات تُحفظ فقط عند فتح الصفحة من Claude.', 'err'); return; }
+    try { await db.doc('config/settings').set({prefix: $('prefix').value.trim(), startSeq: Math.max(1, parseInt($('startSeq').value, 10) || 1)}); setStatus('حُفظت إعدادات الترقيم.', 'ok'); }
+    catch (e) { setStatus('تعذّر حفظ الإعدادات.', 'err'); }
+  };
+  await Promise.all([fontsReady, imgsReady]).catch(() => {});
+  preview();
+  connect();
+}
+// Standalone mode (GitHub Pages): register and numbering kept in this browser.
+let LOCAL = false;
+const KEY = 'almajid-letters-db';
+function localDB() {
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { return {}; } };
+  const store = s => { localStorage.setItem(KEY, JSON.stringify(s)); };
+  const subs = [], notify = () => subs.forEach(f => f());
+  window.addEventListener('storage', e => { if (e.key === KEY) notify(); });
+  const snap = p => { const v = load()[p]; return {id: p.split('/').pop(), exists: !!v, data: () => v}; };
+  return {
+    _all: load, _replace: s => { store(s); notify(); },
+    collection(name) { return {onSnapshot(next) { const f = () => { const s = load();
+      next({docs: Object.keys(s).filter(k => k.startsWith(name + '/')).map(snap)}); }; subs.push(f); f(); return () => {}; }}; },
+    doc(p) { return {
+      get: async () => snap(p), acquire: async () => ({acquired: true}),
+      set: async d => { const s = load(); s[p] = d; store(s); notify(); },
+      onSnapshot(next) { const f = () => next(snap(p)); subs.push(f); f(); return () => {}; } }; }
+  };
+}
+const localDL = {save: async ({filename, data}) => {
+  const u = URL.createObjectURL(data instanceof Blob ? data : new Blob([data]));
+  const a = document.createElement('a'); a.href = u; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(u), 5000);
+  return {status: 'saved'};
+}};
+function setupBackup() {
+  $('backup').hidden = false;
+  $('exportReg').onclick = () => {
+    localDL.save({filename: 'سجل-الخطابات-' + todayISO() + '.json', data: new Blob([JSON.stringify(db._all(), null, 1)], {type: 'application/json'})});
+    setStatus('صُدّرت نسخة احتياطية من السجل.', 'ok');
+  };
+  $('importReg').onchange = async e => {
+    const f = e.target.files[0]; if (!f) return;
+    try { const inc = JSON.parse(await f.text()); if (!inc || typeof inc !== 'object') throw 0;
+      db._replace(Object.assign({}, db._all(), inc)); setStatus('استُورد السجل ودُمج مع الموجود.', 'ok'); }
+    catch (err) { setStatus('الملف غير صالح. اختر ملف نسخة احتياطية صدّرته من هذه الصفحة.', 'err'); }
+    e.target.value = '';
+  };
+}
+async function connect() {
+  if (window.claude && typeof window.claude.use === 'function') {
+    try { [db, dl] = await Promise.all([window.claude.use('db'), window.claude.use('downloads')]); } catch (e) {}
+  } else { db = localDB(); dl = localDL; LOCAL = true; setupBackup(); }
+  refreshChip();
+  if (!db) return;
+  const to = setTimeout(() => { if (!letters.length) $('logEmpty').textContent = 'لم يُحمَّل السجل بعد. تحقق من الاتصال.'; }, 10000);
+  db.collection('letters').onSnapshot(s => {
+    clearTimeout(to);
+    letters = s.docs.map(x => x.data()).filter(x => x && x.seq);
+    renderLog(); refreshChip(); schedule();
+  }, () => { clearTimeout(to); $('logEmpty').textContent = 'تعذّر تحميل السجل.'; });
+  db.doc('config/settings').onSnapshot(s => {
+    const v = s.exists ? s.data() : {};
+    settings = {prefix: v.prefix || '', startSeq: v.startSeq || 1};
+    $('prefix').value = settings.prefix; $('startSeq').value = settings.startSeq;
+    refreshChip(); schedule();
+  }, () => {});
+}
+start();
+})();
+</script>
+
+</body>
+</html>
